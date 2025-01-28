@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>All vegetable List</h1>
+<table  border="1px">
+<thead>
+<tr>
+<th>vegId</th>
+<th>Name</th>
+<th>Type</th>
+<th>price</th>
+<th>Quantity</th>
+<th>update</th>
+<th>Delete</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="vegLi:${vegList}">
+<td th:text=${vegLi.vegId}></td>
+<td th:text=${vegLi.name}></td>
+<td th:text=${vegLi.type}></td>
+<td th:text=${vegLi.price}></td>
+<td th:text=${vegLi.quantity}></td>
+<td><a th:href="@{updateVeg/{id}(id=${vegLi.vegId})}">update</a></td>
+<td><a th:href="@{deleteVeg/{id}(id=${vegLi.vegId})}">delete</a></td>
+</tr>
+</tbody>
+</table>
+<a th:href="@{/insert}">Add new Stock</a><br><br>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>Sing up page</h1>
+
+<form action="saveUser" th:object="${userr}" method="post" >
+
+<div>
+<label>UserName</label>
+<input type="text" th:field="*{userName}">
+</div><br>
+<div>
+<label>Mobile</label>
+<input type="number" th:field="*{mobileNumber}">
+</div><br>
+<div>
+<label>Email</label>
+<input type="email" th:field="*{emailId}">
+</div><br>
+
+
+
+<div>
+<label>Password</label>
+<input type="text" th:field="*{password}">
+</div><br>
+
+<div>
+<label>Confirm Password </label>
+<input type="text" th:field="*{confirmPassword}">
+</div><br>
+
+<button type="submit">Save</button>
+
+
+
+</form>
+</body>
+</html>

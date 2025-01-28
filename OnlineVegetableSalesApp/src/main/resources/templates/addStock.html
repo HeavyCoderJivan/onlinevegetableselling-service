@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Add Stock here</h1>
+<form action="saveveg" th:object="${addVeg}" method="post">
+
+<div>
+<label>name
+<input type="text" th:field=*{name}>
+</label>
+</div>
+
+
+<div>
+<label></label>type
+<select  th:field=*{type}>
+    <option th:value="root">root vegetables</option>
+    <option th:value="stem">stem vegetables</option>
+    <option th:value="bulb">bulb vegetables</option>
+    <option th:value="leaf">leaf and leafstalk vegetables</option>
+    <option th:value="head-or-flower">head or flower vegetables</option>
+    <option th:value="fruits">fruits</option>
+</select>
+</div>
+
+
+<div>
+<label>Price$
+<input type="number" th:field=*{price}>
+</label>
+</div>
+
+
+<div>
+<label>Quantity
+<input type="number" th:field=*{quantity}>
+</label>
+</div>
+
+<button type="submit">saveStock</button>
+</form>
+</body>
+</html>

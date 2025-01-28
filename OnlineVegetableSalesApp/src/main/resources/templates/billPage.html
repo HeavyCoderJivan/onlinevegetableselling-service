@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div th:Object="${billOrder}" >
+<p>Customer Id:<Strong th:text="${billOrder.customerId}"></Strong></p>
+<p>Customer Name:  <Strong th:text="${us}"></Strong></p>
+<p>Order Id:<Strong th:text="${billOrder.orID}"></Strong></p>
+<p>Vegetable Name:<Strong th:text="${billOrder.vegetable}"></Strong></p>
+<p>Quantity:  <Strong th:text="${billOrder.quantity}"></Strong></p>
+<p>Total Amount:  <Strong th:text="${billOrder.totalAmount}"></Strong></p>
+<button type="button">pay</button><br><br>
+<a th:href="@{/backToAllStock}">back To Order page</a>
+</div>
+
+</body>
+</html>
