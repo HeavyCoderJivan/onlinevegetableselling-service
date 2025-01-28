@@ -11,13 +11,14 @@ import com.onlinevegetable.model.User;
 import com.onlinevegetable.service.UserService;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 @Controller
 public class UserController
 {
 	@Autowired
 	private UserService userSer;
 	@GetMapping("/")
-	public String signUp(Model model) 
+	public String signUp(@Valid Model model) 
 	{
 		User user=new User(); 
 		model.addAttribute("userr", user);
@@ -25,7 +26,7 @@ public class UserController
 	}
 	
 	@PostMapping("/saveUser")
-	public String saveUser(@ModelAttribute("use") User user ) 
+	public String saveUser(@Valid  @ModelAttribute("use") User user ) 
 	{
 		userSer.addUser(user);
 		return "login";		
@@ -36,7 +37,7 @@ public class UserController
 		   return "login";
 	}
    @GetMapping("/verify")
-   public String verifyUser(@RequestParam("email") String email, @RequestParam("password") String pass,Model model,HttpSession session  ) 
+   public String verifyUser(@Valid @RequestParam("email") String email, @RequestParam("password") String pass,Model model,HttpSession session  ) 
    {
 	   try {
 		   if(!email.contains("admin@gmail.com") && !pass.contains("admin@123") )

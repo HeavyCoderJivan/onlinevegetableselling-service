@@ -5,12 +5,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 @Entity
 public class User
 {
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 private int userId;
+@NotBlank(message="Username i mandatory")
 private String userName;
 private long mobileNumber;
 private String emailId;
