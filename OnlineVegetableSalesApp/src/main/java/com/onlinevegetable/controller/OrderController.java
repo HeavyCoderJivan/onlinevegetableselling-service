@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.onlinevegetable.model.Order_Class;
 import com.onlinevegetable.model.User;
 import com.onlinevegetable.model.VegetableDTO;
-import com.onlinevegetable.repository.service.OrderService;
-import com.onlinevegetable.repository.service.UserService;
-import com.onlinevegetable.repository.service.VegetableService;
+import com.onlinevegetable.service.OrderService;
+import com.onlinevegetable.service.UserService;
+import com.onlinevegetable.service.VegetableService;
+
 import jakarta.servlet.http.HttpSession;
 @Controller
 public class OrderController 
 {
-
 @Autowired
 private OrderService orderSer;
 @Autowired
@@ -57,6 +57,7 @@ public void update(Integer id,Integer idd)
 	veg.setQuantity(veg.getQuantity()-o.getQuantity());
 	vegService.saveVegetable(veg);
 }
+
 
 @GetMapping("/backToAllStock")
 public String backToViewAllStock() 

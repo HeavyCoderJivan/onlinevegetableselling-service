@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.onlinevegetable.model.VegetableDTO;
-import com.onlinevegetable.repository.service.VegetableService;
+import com.onlinevegetable.service.VegetableService;
 @Controller
 public class VegController
 {

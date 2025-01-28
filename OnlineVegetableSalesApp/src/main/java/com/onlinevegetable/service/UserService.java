@@ -1,4 +1,4 @@
-package com.onlinevegetable.repository.service;
+package com.onlinevegetable.service;
 
 import java.util.List;
 

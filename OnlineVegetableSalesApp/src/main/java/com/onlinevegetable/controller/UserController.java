@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.onlinevegetable.model.User;
-import com.onlinevegetable.repository.service.UserService;
+import com.onlinevegetable.service.UserService;
 
 import jakarta.servlet.http.HttpSession;
 @Controller
