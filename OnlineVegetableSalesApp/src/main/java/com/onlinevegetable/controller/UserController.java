@@ -24,7 +24,6 @@ public class UserController
 		model.addAttribute("userr", user);
 		return "signup";
 	}
-	
 	@PostMapping("/saveUser")
 	public String saveUser(@Valid  @ModelAttribute("use") User user ) 
 	{

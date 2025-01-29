@@ -22,7 +22,6 @@ private OrderService orderSer;
 private VegetableService vegService;
 @Autowired
 private UserService userSe;
-
 @GetMapping("/order/{id}")
 public String OrderPage(Model model, @PathVariable Integer id, HttpSession session) 
 {
