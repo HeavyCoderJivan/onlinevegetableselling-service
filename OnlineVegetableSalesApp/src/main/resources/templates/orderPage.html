@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>now your in Order page</title>
 </head>
 <body>
 <h1>Order page</h1>
@@ -10,16 +10,11 @@
 <p>Product Id :<Strong th:text=${vegOrder.vegId} ></Strong></p>
 <p>Product Name :<Strong th:text=${vegOrder.name} ></Strong></p>
 <p>Product Price :<Strong th:text=${vegOrder.price} ></Strong></p>
-<p>Product Category :<Strong th:text=${vegOrder.type} ></Strong></p>
+<p>Product Category :<Strong th:text=${vegOrder.type}></Strong></p>
 <form th:action="doneOrder" th:object="${vegOrder}" method="get">
 <label>Quantity</label><br>
 <input type="number" name="quantity"><br>
-
 <button type="submit">Submit</button>
-
-
-
-
 
 </form>
 </body>

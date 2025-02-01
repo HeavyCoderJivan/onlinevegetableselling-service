@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.onlinevegetable.exceptionhandling.StockOverFlowException;
 import com.onlinevegetable.model.Order_Class;
 import com.onlinevegetable.model.User;
 import com.onlinevegetable.model.VegetableDTO;
@@ -25,9 +27,11 @@ private UserService userSe;
 @GetMapping("/order/{id}")
 public String OrderPage(Model model, @PathVariable Integer id, HttpSession session) 
 {
+	
 	model.addAttribute("vegOrder", vegService.getVegtableById(id));
 	session.setAttribute("vnm", vegService.getVegtableById(id).getName());
 	session.setAttribute("pri", vegService.getVegtableById(id).getPrice());
+	session.setAttribute("totalQuantity",vegService.getVegtableById(id).getQuantity());
 	model.addAttribute("getAllUser", userSe.getAllUsers());
 	session.setAttribute("vegId", id);
 	return "orderPage";
@@ -36,6 +40,9 @@ public String OrderPage(Model model, @PathVariable Integer id, HttpSession sessi
 @GetMapping("/order/doneOrder")
 public String getMapping(Order_Class order,@RequestParam("quantity") Integer qun,Model model, User user, HttpSession session) 
 {
+	Integer total=(Integer)session.getAttribute("totalQuantity");
+	if(qun<total) 
+	{
     order.setOrID(user.getUserId());
     order.setVegetable((String)session.getAttribute("vnm"));
 	order.setTotalAmount(qun*(double)session.getAttribute("pri"));
@@ -47,6 +54,11 @@ public String getMapping(Order_Class order,@RequestParam("quantity") Integer qun
 	int id=(int)session.getAttribute("vegId");
 	update(id, order.getOrID());
 	return "billPage";	
+	}
+	else 
+	{
+		throw new StockOverFlowException("invalid Quantity Enter");
+	}
 }
 
 public void update(Integer id,Integer idd) 

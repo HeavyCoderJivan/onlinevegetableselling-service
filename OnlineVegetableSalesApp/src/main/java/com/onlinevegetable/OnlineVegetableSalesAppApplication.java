@@ -8,4 +8,5 @@ public class OnlineVegetableSalesAppApplication
 	{
 		SpringApplication.run(OnlineVegetableSalesAppApplication.class, args);
 	}
+	
 }

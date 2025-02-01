@@ -62,6 +62,9 @@ public String deleteVeg(@PathVariable Integer id)
 	vegSer.deleteVegById(id);
 	return "redirect:/showAllStock";
 }
+
+
+
 @GetMapping("/viewAllStock")
 public String vieALLVegetable(Model model) 
 {
